@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Investment Trends 2025-2030</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+                max-height: 350px;
+            }
+        }
+
+        .diagram-block {
+            border: 2px solid #1D4ED8; /* blue-mid */
+            background-color: #F3F4F6; /* gray-light */
+            color: #1E3A8A; /* blue-deep */
+        }
+        
+        .diagram-plus {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #9CA3AF; /* orange -> gray-400 */
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-bright': '#3B82F6', // Blue 500
+                        'blue-mid': '#1D4ED8',    // Blue 700
+                        'blue-deep': '#1E3A8A',   // Blue 900
+                        'gold': '#E5E7EB',        // Gray 200 (replacing gold)
+                        'orange': '#9CA3AF',      // Gray 400 (replacing orange)
+                        'gray-light': '#F3F4F6',  // Gray 100
+                        'gray-dark': '#374151',   // Gray 700
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-light text-gray-dark">
+
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold text-blue-deep">The Future of Corporate Investment</h1>
+            <p class="text-xl md:text-2xl text-blue-mid mt-2">A 2025 Snapshot and 2030 Outlook</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section class="text-center mb-12">
+            <div class="bg-blue-deep text-white p-8 rounded-lg shadow-xl max-w-4xl mx-auto">
+                <span class="text-6xl md:text-7xl font-bold text-gold block">~$2.5 Trillion</span>
+                <p class="text-xl md:text-2xl mt-4 text-blue-bright">Projected new corporate investment in transformative technologies in 2025.</p>
+            </div>
+            <p class="text-lg text-gray-dark mt-6 max-w-3xl mx-auto">
+                Large firms in 2025 are fundamentally shifting capital. Investment is moving away from traditional assets and flowing decisively into transformative technologies that promise automation, intelligence, and sustainability. This report analyzes the key categories driving this change.
+            </p>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-blue-deep text-center mb-6">The 2025 Investment Landscape</h2>
+            <p class="text-lg text-gray-dark mb-8 max-w-3xl mx-auto text-center">
+                Today's investments are concentrated in a few key high-growth areas. Technology and Healthcare lead, but Sustainable Energy is rapidly closing the gap, driven by global ESG mandates and technological breakthroughs.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <div class="bg-white shadow-lg p-6 rounded-lg flex flex-col">
+                    <h3 class="text-xl font-bold text-blue-mid mb-4 text-center">Global Investment by Sector (2025)</h3>
+                    <div class="chart-container flex-grow">
+                        <canvas id="sectorDonutChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-dark mt-4">
+                        <b>Key Takeaway:</b> Technology remains the dominant investment sector, capturing over a third of all major corporate capital. Healthcare and Sustainable Energy together form another massive block, highlighting the "dual-track" focus on digital and physical transformation.
+                    </p>
+                </div>
+
+                <div class="bg-white shadow-lg p-6 rounded-lg flex flex-col">
+                    <h3 class="text-xl font-bold text-blue-mid mb-4 text-center">Top 5 High-Growth Sub-Sectors (2025)</h3>
+                    <div class="chart-container flex-grow">
+                        <canvas id="subSectorBarChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-dark mt-4">
+                        <b>Key Takeaway:</b> Within the major sectors, Artificial Intelligence and Cloud Infrastructure are the undisputed leaders, attracting massive capital for their horizontal application across all industries. Biotechnology and Cybersecurity show deep, specialized investment.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-blue-deep text-center mb-6">USA vs. The World: A Regional Deep Dive</h2>
+            <p class="text-lg text-gray-dark mb-8 max-w-3xl mx-auto text-center">
+                While trends are global, regional priorities differ. The USA continues its dominance in software-centric and deep-tech R&D, while Europe and Asia are leading the charge in massive-scale sustainable energy and advanced manufacturing initiatives.
+            </p>
+
+            <div class="bg-white shadow-lg p-6 rounded-lg">
+                <h3 class="text-xl font-bold text-blue-mid mb-4 text-center">Regional Investment Focus: USA vs. Global (2025)</h3>
+                <div class="chart-container max-w-3xl">
+                    <canvas id="regionalGroupedBarChart"></canvas>
+                </div>
+                <p class="text-sm text-gray-dark mt-4 max-w-3xl mx-auto">
+                    <b>Key Takeaway:</b> This chart highlights the strategic divergence. The US market shows a heavier concentration in AI and Biotechnology. The global market, particularly Europe and Asia, shows a significantly stronger focus on ESG/Renewables and rebuilding supply chains with Advanced Manufacturing.
+                </p>
+            </div>
+        </section>
+        
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-blue-deep text-center mb-6">The 2030 Horizon: Projecting the Next Wave</h2>
+            <p class="text-lg text-gray-dark mb-8 max-w-3xl mx-auto text-center">
+                Looking ahead, the growth trajectories of today's key sectors are set to accelerate. AI and Sustainable Energy are on track to become trillion-dollar-plus annual investment markets by 2030. Emerging fields like Quantum Computing, while small today, show the highest relative growth potential.
+            </p>
+
+            <div class="bg-white shadow-lg p-6 rounded-lg">
+                <h3 class="text-xl font-bold text-blue-mid mb-4 text-center">Projected Sector Growth (2025-2030)</h3>
+                <div class="chart-container max-w-4xl">
+                    <canvas id="growthLineChart"></canvas>
+                </div>
+                <p class="text-sm text-gray-dark mt-4 max-w-4xl mx-auto">
+                    <b>Key Takeaway:</b> The forecast shows a steep, sustained ramp-up in AI and Sustainable Energy investment. Digital Health also shows robust, steady growth. Quantum Computing's trajectory, while starting from a low base, represents a paradigm shift that could disrupt all other sectors post-2030.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-blue-deep text-center mb-6">Long-Term Outlook: The Convergence Economy</h2>
+            <p class="text-lg text-gray-dark mb-8 max-w-3xl mx-auto text-center">
+                Beyond 2030, the most significant value creation will come from the *convergence* of these key themes. The long-term investment thesis is not about individual technologies, but about how they integrate to solve systemic challenges.
+            </p>
+
+            <div class="bg-white shadow-lg p-6 rounded-lg">
+                <h3 class="text-xl font-bold text-blue-mid mb-4 text-center">Key Long-Term Investment Themes</h3>
+                <div class="flex flex-col md:flex-row justify-around items-center space-y-4 md:space-y-0 md:space-x-4">
+
+                    <div class="flex-1 text-center p-4">
+                        <h4 class="text-lg font-bold text-blue-deep mb-3">DIGITIZATION & AUTOMATION</h4>
+                        <ul class="space-y-2">
+                            <li class="diagram-block p-3 rounded-lg font-medium">AI & Machine Learning</li>
+                            <li class="diagram-block p-3 rounded-lg font-medium">Robotics & Drones</li>
+                            <li class="diagram-block p-3 rounded-lg font-medium">Quantum Computing</li>
+                        </ul>
+                    </div>
+                <p class="text-sm text-gray-dark mt-6 max-w-4xl mx-auto text-center">
+                    <b>Key Takeaway:</b> The ultimate long-term strategy involves combining these pillars. Examples include: <b>AI-driven drug discovery</b> (Digitization + Personalization), <b>intelligent energy grids</b> (Digitization + Decarbonization), and <b>sustainable personalized products</b> (All Three).
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-blue-deep text-white mt-12 py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm">This infographic is based on analysis of 2025 market trends and long-term forecasts.</p>
+            <p class="text-xs mt-1 opacity-70">Data synthesized for illustrative purposes. © 2025 Corporate Insights.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const palette = {
+                blueBright: '#3B82F6', // Blue 500
+                blueMid: '#1D4ED8',    // Blue 700
+                blueDeep: '#1E3A8A',   // Blue 900
+                yellow: '#E5E7EB',     // Gray 200 (replacing gold)
+                orange: '#9CA3AF',     // Gray 400 (replacing orange)
+                textDark: '#1E3A8A',   // Deep blue for dark text
+                textLight: '#6B7280'   // Gray 500
+            };
+
+            function wrapLabels(label, maxWidth = 16) {
+                if (typeof label !== 'string' || label.length <= maxWidth) {
+                    return label;
+                }
+                
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+
+                words.forEach(word => {
+                    if ((currentLine + word).length > maxWidth && currentLine.length > 0) {
+                        lines.push(currentLine.trim());
+                        currentLine = word + ' ';
+                    } else {
+                        currentLine += word + ' ';
+                    }
+                });
+                lines.push(currentLine.trim());
+                return lines;
+            }
+
+            const multiLineTooltipCallback = {
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        if (Array.isArray(label)) {
+                            return label.join(' ');
+                        } else {
+                            return label;
+                        }
+                    }
+                }
+            };
+            
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: palette.textDark
+                        }
+                    },
+                    tooltip: multiLineTooltipCallback
+                },
+                scales: {
+                    y: {
+                        ticks: { color: palette.textDark },
+                        grid: { color: '#e2e8f0' }
+                    },
+                    x: {
+                        ticks: { color: palette.textDark },
+                        grid: { display: false }
+                    }
+                }
+            };
+
+            const sectorDonutCtx = document.getElementById('sectorDonutChart')?.getContext('2d');
+            if (sectorDonutCtx) {
+                new Chart(sectorDonutCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Technology', 'Healthcare', 'Sustainable Energy', 'Advanced Mfg.', 'FinTech', 'Other'],
+                        datasets: [{
+                            data: [35, 25, 20, 10, 5, 5],
+                            backgroundColor: [palette.blueBright, palette.blueMid, palette.orange, palette.yellow, palette.blueDeep, palette.textLight],
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { color: palette.textDark }
+                            },
+                            tooltip: multiLineTooltipCallback
+                        }
+                    }
+                });
+            }
+
+            const subSectorBarCtx = document.getElementById('subSectorBarChart')?.getContext('2d');
+            if (subSectorBarCtx) {
+                new Chart(subSectorBarCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            wrapLabels('AI & Machine Learning'),
+                            wrapLabels('Cloud Infrastructure'),
+                            'Biotechnology',
+                            'Cybersecurity',
+                            wrapLabels('Battery Storage')
+                        ],
+                        datasets: [{
+                            label: 'Investment ($B)',
+                            data: [500, 350, 300, 250, 200],
+                            backgroundColor: palette.blueMid,
+                            borderColor: palette.blueDeep,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                title: { display: true, text: 'Annual Investment ($B)', color: palette.textDark },
+                                ticks: { color: palette.textDark },
+                                grid: { color: '#e2e8f0' }
+                            },
+                            y: {
+                                ticks: { color: palette.textDark },
+                                grid: { display: false }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: multiLineTooltipCallback
+                        }
+                    }
+                });
+            }
+            
+            const regionalGroupedBarCtx = document.getElementById('regionalGroupedBarChart')?.getContext('2d');
+            if (regionalGroupedBarCtx) {
+                new Chart(regionalGroupedBarCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['AI/ML', 'ESG/Renewables', 'Biotechnology', wrapLabels('Advanced Mfg. & Supply Chain')],
+                        datasets: [
+                            {
+                                label: 'USA Focus',
+                                data: [60, 30, 55, 40],
+                                backgroundColor: palette.blueBright,
+                            },
+                            {
+                                label: 'Global Focus',
+                                data: [40, 70, 45, 60],
+                                backgroundColor: palette.orange,
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                title: { display: true, text: 'Share of Investment Focus (%)', color: palette.textDark },
+                                ticks: { 
+                                    color: palette.textDark,
+                                    callback: function(value) { return value + '%' }
+                                },
+                                grid: { color: '#e2e8f0' }
+                            },
+                            x: {
+                                ticks: { color: palette.textDark },
+                                grid: { display: false }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { color: palette.textDark }
+                            },
+                            tooltip: {
+                                ...multiLineTooltipCallback,
+                                callbacks: {
+                                    ...multiLineTooltipCallback.callbacks,
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            label += context.parsed.y + '%';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            const growthLineCtx = document.getElementById('growthLineChart')?.getContext('2d');
+            if (growthLineCtx) {
+                new Chart(growthLineCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['2025', '2026', '2027', '2028', '2029', '2030'],
+                        datasets: [
+                            {
+                                label: 'AI & Machine Learning',
+                                data: [500, 650, 800, 1000, 1250, 1500],
+                                borderColor: palette.blueBright,
+                                backgroundColor: 'rgba(59, 130, 246, 0.1)', // blue-500 with opacity
+                                fill: true,
+                                tension: 0.3
+                            },
+                            {
+                                label: 'Sustainable Energy',
+                                data: [400, 550, 700, 850, 1000, 1200],
+                                borderColor: palette.orange,
+                                backgroundColor: 'rgba(156, 163, 175, 0.1)', // gray-400 with opacity
+                                fill: true,
+                                tension: 0.3
+                            },
+                            {
+                                label: 'Digital Health',
+                                data: [150, 200, 260, 320, 390, 450],
+                                borderColor: palette.blueMid,
+                                backgroundColor: 'rgba(29, 78, 216, 0.1)', // blue-700 with opacity
+                                fill: true,
+                                tension: 0.3
+                            },
+                            {
+                                label: 'Quantum Computing',
+                                data: [10, 20, 35, 50, 75, 100],
+                                borderColor: palette.yellow,
+                                backgroundColor: 'rgba(229, 231, 235, 0.1)', // gray-200 with opacity
+                                fill: true,
+                                tension: 0.3,
+                                borderDash: [5, 5]
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                title: { display: true, text: 'Projected Investment ($B)', color: palette.textDark },
+                                ticks: { color: palette.textDark },
+                                grid: { color: '#e2e8f0' }
+                            },
+                            x: {
+                                title: { display: true, text: 'Year', color: palette.textDark },
+                                ticks: { color: palette.textDark },
+                                grid: { display: false }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { color: palette.textDark }
+                            },
+                            tooltip: {
+                                ...multiLineTooltipCallback,
+                                mode: 'index',
+                                intersect: false
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
